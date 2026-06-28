@@ -8,19 +8,19 @@ const SLIDES = [
     id: '1',
     title: 'Bem-vindo ao OrgaLife 🚀',
     description: 'O seu novo espaço para organizar sua rotina, gerenciar tarefas e manter suas metas em dia de forma totalmente integrada.',
-    image: require('../assets/slide1.png'), // Adicione a imagem do slide 1
+    image: require('../../assets/slide1.png'),
   },
   {
     id: '2',
     title: 'Tudo em um só lugar 📁',
     description: 'Centralize suas notas, monte listas de hábitos e acompanhe sua evolução diária sem complicações ou poluição visual.',
-    image: require('../assets/slide2.png'), // Adicione a imagem do slide 2
+    image: require('../../assets/slide2.png'),
   },
   {
     id: '3',
     title: 'Foco no que importa 🎯',
     description: 'Interface limpa, minimalista e adaptada para que você gaste energia executando suas tarefas, não organizando elas.',
-    image: require('../assets/slide3.png'), // Adicione a imagem do slide 3
+    image: require('../../assets/slide3.png'),
   },
 ];
 
@@ -45,7 +45,7 @@ export function OnboardingSlider({ onFinish }: OnboardingProps) {
         animated: true,
       });
     } else {
-      onFinish(); // Avisa a Home que o slider acabou
+      onFinish();
     }
   };
 
@@ -60,13 +60,12 @@ export function OnboardingSlider({ onFinish }: OnboardingProps) {
         scrollEventThrottle={16}
         className="flex-grow-0"
       >
-        // Renderiza cada slide do onboarding
         {SLIDES.map((slide) => (
           <View key={slide.id} style={{ width: SCREEN_WIDTH }} className="items-center justify-center px-10">
             <Image 
-                source={slide.image} 
-                style={{ width: 256, height: 256, marginBottom: 32 }} // Define o tamanho e margem com Tailwind
-                resizeMode="contain" // Garante que a imagem não morda ou corte nas bordas
+              source={slide.image} 
+              style={{ width: 256, height: 256, marginBottom: 32 }}
+              resizeMode="contain"
             />
             <Text className="text-3xl font-extrabold text-blue-600 dark:text-blue-400 text-center mb-5">
               {slide.title}
@@ -77,7 +76,7 @@ export function OnboardingSlider({ onFinish }: OnboardingProps) {
           </View>
         ))}
       </ScrollView>
-        // Renderiza os indicadores de progresso e o botão "Próximo" ou "Começar Jornada"
+
       <View className="items-center px-10">
         <View className="flex-row gap-2 mb-8">
           {SLIDES.map((_, index) => (
@@ -89,7 +88,7 @@ export function OnboardingSlider({ onFinish }: OnboardingProps) {
             />
           ))}
         </View>
-          // Renderiza o botão "Próximo" ou "Começar Jornada" dependendo do slide atual
+
         <TouchableOpacity
           onPress={handleNext}
           activeOpacity={0.8}
