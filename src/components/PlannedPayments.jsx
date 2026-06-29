@@ -1,7 +1,6 @@
-import React from 'React';
+import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import { MaterialCommunityIcons} from '@expo/vector-icons';
-import { VELOCITY_EPS } from 'react-native-reanimated/lib/typescript/animation/decay/utils';
 
 export default function PlannedPayments(){
     return(
@@ -29,7 +28,7 @@ export default function PlannedPayments(){
             <View className="bg-gray-900 p-4 rounded-2xl flex-row items-center justify-between mb-2">
                 <View className="flex-row items-center">
                     <View className="bg-pink-500/10 p-3 rounded-xl mr-4">
-                        <MaterialCommunityIcons name="hand-holding-medical" size={20} color="#a855f7" />
+                        <MaterialCommunityIcons name="stethoscope" size={20} color="#a855f7" />
                     </View>
                     <View>
                         <Text className="text-white font-medium">Remedio Mensal</Text>

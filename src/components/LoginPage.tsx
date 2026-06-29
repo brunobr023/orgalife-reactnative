@@ -1,7 +1,12 @@
 import React from 'react';
 import { Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { useNavigation, NavigationProp } from '@react-navigation/native';
+
+type LoginPageNavigationProp = NavigationProp<Record<string, object | undefined>>;
 
 export function LoginPage() {
+  const navigation = useNavigation<LoginPageNavigationProp>();
+
   return (
     <View className="flex-1 bg-white dark:bg-slate-900 justify-center p-6">
       
@@ -44,6 +49,7 @@ export function LoginPage() {
       <TouchableOpacity
         activeOpacity={0.8}
         className="w-full bg-blue-600 dark:bg-blue-500 py-4 rounded-2xl items-center shadow-md mb-6"
+        onPress={() => navigation.navigate('AppPrincipal')}
       >
         <Text className="text-white font-bold text-lg">Entrar</Text>
       </TouchableOpacity>

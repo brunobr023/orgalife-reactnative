@@ -3,7 +3,7 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import {Feather} from '@expo/vector-icons';
 
 export default function Header({showBalance, setShowBalance}){
-    const [greeting, setGreeting] = UseState('');
+    const [greeting, setGreeting] = useState('');
 
     //Mensagens de Boa Vindas!
     const messages = [
@@ -21,17 +21,20 @@ export default function Header({showBalance, setShowBalance}){
     }, []);
 
     return(
-        <View className="px-6 pb-6 border-b border-gray-900 flew-row justify-between items-center">
+        <View className="px-6 pb-6 border-b border-gray-900 flex-row justify-between items-center">
             <View>
-                <Text className="text-gray-400 text-sm">Olá Bruno!</Text>{/* O nome do Usuário deve vir aqui*/}
-                <Text className="text-gray-400 text-sm">{greeting}</Text> 
+                {/* Ajustado o tamanho e peso para destacar o nome do usuário */}
+                <Text className="text-white text-2xl font-bold">Olá, Bruno!</Text>
+                {/* A mensagem dinâmica fica menor e mais discreta embaixo */}
+                <Text className="text-gray-400 text-lg mt-0.5">{greeting}</Text> 
             </View>
+            
             <TouchableOpacity
-            onPress={() => setShowBalance(!showBalance)}
-            className="bg-gray-900 p-3 rounded-full"
+                onPress={() => setShowBalance(!showBalance)}
+                className="bg-gray-900 p-3 rounded-full"
             >
-                <Feather name={showBalance ? "eye" : "eye-off"} size={20} color="#fff"></Feather>
+                <Feather name={showBalance ? "eye" : "eye-off"} size={25} color="#fff" />
             </TouchableOpacity>
-        </View>
+            </View>
     );
 }

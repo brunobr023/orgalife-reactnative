@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
-import {Ioicons} from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function TodoList(){
     return(
@@ -10,7 +10,7 @@ export default function TodoList(){
                 <TouchableOpacity><Text className="text-purple-400 text-xs">Novo item</Text></TouchableOpacity>
             </View>
             <View className="bg-gray-900 p-4 rounded-2xl flex-row items-center mb-2">
-                <Ionicons name="square-outline" size={20} color="#9ca3af" mr={3} />
+                <Ionicons name="square-outline" size={20} color="#9ca3af" className="mr-3" />
                 <Text className="text-gray-300 ml-2">Revisar código do app antes do deploy</Text>
             </View>
         </View>

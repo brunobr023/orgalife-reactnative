@@ -1,4 +1,4 @@
-import React from 'React';
+import React from 'react';
 import {View, Text} from 'react-native';
 import {Feather} from '@expo/vector-icons';
 
@@ -25,13 +25,13 @@ export default function BalanceCard({showBalance}){
                     </View>
                 </View>
                 {/* Despesas*/}
-                <View className="flew-row items-center">
-                    <View className="bg-red-500/10  p-2 rounded-xl mr-3">
-                        <Feather name="arrow-up-right" size={18} color="#ef4444"/>
+                <View className="flex-row items-center">
+                    <View className="bg-red-500/10 p-2 rounded-xl mr-3">
+                        <Feather name="arrow-down-left" size={18} color="#ef4444"/>
                     </View>
                     <View>
-                        <Text className="text-gray-400 text-xs">Saídas</Text>
-                        <Text className="text-red-500 p-2 text-sm font-semibold">
+                        <Text className="text-gray-400 text-xs">Despesas</Text>
+                        <Text className="text-red-500 text-sm font-semibold">
                             {showBalance ? "- R$ 294,93" : "******"}
                         </Text>
                     </View>
