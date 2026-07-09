@@ -5,6 +5,7 @@ import { LoginPage } from '../components/LoginPage';
 import { RegisterPage } from '../components/RegisterPage';
 import HomeScreen from "../screens/HomeScreen"; // 👈 Importe a sua tela principal aqui (ajuste o caminho se necessário)
 import { supabase } from '../database/supabase';
+import TabNavigator from '../navigations/TabNavigator'
 
 type AuthStep = 'onboarding' | 'login' | 'register';
 
@@ -41,7 +42,7 @@ export function Home() {
   // CASO 1: USUÁRIO LOGADO (JWT ativo no aparelho)
   // ==========================================
   if (session) {
-    return <HomeScreen />; // Renderiza a tela principal direto
+    return <TabNavigator />;
   }
 
   // ==========================================

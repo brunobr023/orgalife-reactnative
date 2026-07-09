@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, FlatList } from 'react-native';
+import { supabase } from '../database/supabase';
 import { getDBConnection } from '../database/localDB';
 import { insertConta, insertCategoria, insertTransacao, getTransacoesComDetalhes } from '../database/dbOperations';
 
@@ -11,6 +12,20 @@ export default function DebugScreen() {
     const lista = await getTransacoesComDetalhes(userIdFake);
     setTransacoes(lista);
   };
+
+    //função para deslogar o usuário
+    const handleLogout = async () => {
+    console.log("Botão de logout clicado!"); // Olhe no seu terminal do Metro
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+        console.error("Erro no signOut:", error);
+    } else {
+        console.log("Logout executado com sucesso!");
+    }
+    };
+    // chamar await supabase.auth.signOut(); para fazer logout do usuário,
+    // e depois redirecionar para a tela de login ou onboarding.
+    
 
   useEffect(() => {
     carregarDados();
@@ -81,6 +96,18 @@ export default function DebugScreen() {
     <View className="flex-1 bg-fundo-claro dark:bg-fundo-escuro p-6 pt-12">
       <Text className="text-2xl font-bold text-texto-principal-claro dark:text-white mb-2">Painel de Debug 🛠️</Text>
       <Text className="text-texto-secundario-claro dark:text-texto-secundario-escuro mb-6">Teste o banco de dados SQLite local inserindo ou limpando registros.</Text>
+    {/*Botão de Logout */}
+        <TouchableOpacity 
+            onPress={handleLogout}
+            style={{
+            backgroundColor: '#ef4444', // Vermelho para indicar ação de sair
+            paddingVertical: 12,
+            paddingHorizontal: 24,
+            borderRadius: 12,
+            }}
+        >
+            <Text style={{ color: '#fff', fontWeight: 'bold' }}>Sair da Conta (Logout)</Text>
+        </TouchableOpacity>
 
       {/* Grid de Botões de Ação */}
       <View className="flex-row space-x-3 mb-6">
@@ -128,6 +155,7 @@ export default function DebugScreen() {
           <Text className="text-texto-secundario-claro dark:text-texto-secundario-escuro text-center mt-8">Nenhum dado salvo no SQLite local ainda.</Text>
         }
       />
+      
     </View>
   );
 }

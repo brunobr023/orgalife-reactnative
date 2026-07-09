@@ -7,7 +7,6 @@ import BalanceCard from '../components/BalanceCard';
 import PlannedPayments from '../components/PlannedPayments';
 import TodoList from '../components/TodoList';
 import PlannedEvents from '../components/PlannedEvents';
-import TabNavigator from '../navigations/TabNavigator';
 // import FloatingNavbar from '..;/components/FloatingNavbar';
 import {supabase} from '../database/supabase'; 
 
@@ -39,7 +38,7 @@ export default function HomeScreen(){
             </ScrollView>
 
             {/* FLOATING NAVBAR */}
-            <TabNavigator />
+            {/* <FloatingNavbar /> */}
         </View>
     );
 }
