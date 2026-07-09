@@ -50,7 +50,7 @@ export function OnboardingSlider({ onFinish }: OnboardingProps) {
   };
 
   return (
-    <View className="flex-1 bg-white dark:bg-slate-900 justify-between py-14">
+    <View className="flex-1 bg-fundo-claro dark:bg-fundo-escuro justify-between py-14">
       <ScrollView
         ref={scrollViewRef}
         horizontal
@@ -67,10 +67,10 @@ export function OnboardingSlider({ onFinish }: OnboardingProps) {
               style={{ width: 256, height: 256, marginBottom: 32 }}
               resizeMode="contain"
             />
-            <Text className="text-3xl font-extrabold text-blue-600 dark:text-blue-400 text-center mb-5">
+            <Text className="text-3xl font-extrabold text-purple-600 dark:text-purple-400 text-center mb-5">
               {slide.title}
             </Text>
-            <Text className="text-base text-gray-600 dark:text-gray-300 text-center leading-6">
+            <Text className="text-base text-texto-secundario-claro dark:text-gray-300 text-center leading-6">
               {slide.description}
             </Text>
           </View>
@@ -83,7 +83,7 @@ export function OnboardingSlider({ onFinish }: OnboardingProps) {
             <View
               key={index}
               className={`h-2 rounded-full transition-all duration-300 ${
-                activeIndex === index ? 'w-6 bg-blue-600 dark:bg-blue-400' : 'w-2 bg-gray-300 dark:bg-gray-700'
+                activeIndex === index ? 'w-6 bg-purple-600 dark:bg-purple-400' : 'w-2 bg-zinc-300 dark:bg-zinc-700'
               }`}
             />
           ))}
@@ -92,7 +92,7 @@ export function OnboardingSlider({ onFinish }: OnboardingProps) {
         <TouchableOpacity
           onPress={handleNext}
           activeOpacity={0.8}
-          className="w-full bg-blue-600 dark:bg-blue-500 py-4 rounded-2xl items-center shadow-md"
+          className="w-full bg-purple-600 dark:bg-purple-500 py-4 rounded-2xl items-center shadow-md active:bg-purple-700 dark:active:bg-purple-600"
         >
           <Text className="text-white font-bold text-lg">
             {activeIndex === SLIDES.length - 1 ? 'Começar Jornada' : 'Próximo'}

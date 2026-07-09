@@ -7,14 +7,22 @@ import BalanceCard from '../components/BalanceCard';
 import PlannedPayments from '../components/PlannedPayments';
 import TodoList from '../components/TodoList';
 import PlannedEvents from '../components/PlannedEvents';
+import TabNavigator from '../navigations/TabNavigator';
 // import FloatingNavbar from '..;/components/FloatingNavbar';
+import {supabase} from '../database/supabase'; 
 
+//função para deslogar o usuário
+async function handleLogout() {
+    const { error } = await supabase.auth.signOut();
+}
+// chamar await supabase.auth.signOut(); para fazer logout do usuário,
+// e depois redirecionar para a tela de login ou onboarding.
 
 export default function HomeScreen(){
     const[showBalance, setShowBalance] = useState(true);
 
     return(
-        <View className="flex-1 bg-gray-950 pt-12 relative">
+        <View className="flex-1 bg-fundo-claro dark:bg-fundo-escuro pt-12 relative">
             {/* HEADER */}
             <Header showBalance={showBalance} setShowBalance={setShowBalance}/>
 
@@ -31,7 +39,7 @@ export default function HomeScreen(){
             </ScrollView>
 
             {/* FLOATING NAVBAR */}
-            {/* Aqui ficaria a barra flutuante ou o componente dela */}
+            <TabNavigator />
         </View>
     );
 }

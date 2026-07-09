@@ -1,9 +1,11 @@
 import "./src/styles/global.css"; 
-import React from 'react';
+import React, { useEffect } from 'react';
+import {initializeDatabase} from './src/database/localDB';
 import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { LogBox } from 'react-native';
+
 
 // Importando suas telas / navegadores
 import { Home as LoginScreen } from './src/screens/home';
@@ -14,7 +16,13 @@ LogBox.ignoreLogs(['[Reanimated] Reading from `value` during component render'])
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  useEffect(() => {
+    // Inicializa o banco de dados SQLite ao iniciar o app
+    initializeDatabase();
+  }, []);
+
   return (
+    
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login" screenOptions={{ headerShown: false }}>
         {/* Tela 1: Login */}
